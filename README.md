@@ -1,66 +1,35 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+1) Socialite package--> composer require laravel/socialite
+2) Configure credentials
+Navigate to the config/services.php file and add the following configuration for the Google provider:-->
+'google' => [
+    'client_id' => env('GOOGLE_CLIENT_ID'),
+    'client_secret' => env('GOOGLE_CLIENT_SECRET'),
+    'redirect' => env('GOOGLE_REDIRECT_URI'),
+],
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Step 1: Go to the Google Developers Console
+Visit the Google Developers Console at https://console.developers.google.com/ and sign in with your Google account.
 
-## About Laravel
+Step 2: Create a new project
+Click on the project drop-down and select "New Project". Enter a name for your project and click the "Create" button.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+Step 3: Enable the Google+ API
+In the left sidebar, click on "Dashboard" and search for "Google+ API". Click on the search result, and on the next screen, click the "Enable" button.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+Step 4: Configure the OAuth consent screen
+In the left sidebar, under "APIs & Services", click on "OAuth consent screen". Choose an appropriate user type, enter a name for your application, and fill in any other required fields. At a minimum, you need to enter the "Authorized domains" field with the domain name of your application. Once you have filled in the necessary information, click the "Save" button.
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+Step 5: Create OAuth client credentials
+In the left sidebar, under "APIs & Services", click on "Credentials". On the next screen, click the "Create Credentials" button and select "OAuth client ID". Choose "Web application" as the application type.
 
-## Learning Laravel
+Step 6: Configure the authorized redirect URI
+In the "Authorized JavaScript origins" field, enter the base URL of your application. For example, if your application runs on http://localhost:8000, enter http://localhost:8000 as the origin. In the "Authorized redirect URIs" field, enter the callback URL for the Google login process in your application. The URL should be in the format http://your-domain/login/google/callback. Replace your-domain with your actual domain. Once you have entered the redirect URI, click the "Create" button.
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+Step 7: Obtain the client ID and client secret
+After creating the OAuth client credentials, you will see a screen displaying the client ID and client secret. Take note of these values as you will need them in the Laravel configuration.
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
-
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
-
-## Laravel Sponsors
-
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
-
-### Premium Partners
-
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
-
-## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+Step 8: Configure Laravel environment variables
+In your Laravel project's root directory, open the .env file. Add the following lines and replace your-client-id, your-client-secret, and your-redirect-uri with the corresponding values you obtained in the previous steps:
+GOOGLE_CLIENT_ID=your-client-id
+GOOGLE_CLIENT_SECRET=your-client-secret
+GOOGLE_REDIRECT_URI=your-redirect-uri
