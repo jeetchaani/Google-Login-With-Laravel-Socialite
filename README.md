@@ -42,6 +42,7 @@ GOOGLE_REDIRECT_URI=your-redirect-uri
 </code>
 
 3) Create Route and Controller --
+
    <code>
          public function redirectToGoogle()
     {
