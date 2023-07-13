@@ -50,7 +50,6 @@ GOOGLE_REDIRECT_URI=your-redirect-uri
     public function handleGoogleCallback()
     {
         $user = Socialite::driver('google')->stateless()->user();
-
         // Perform user registration or login logic here
    }
    </code>
