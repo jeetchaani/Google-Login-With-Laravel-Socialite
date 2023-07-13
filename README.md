@@ -1,14 +1,18 @@
-1) Socialite package--> composer require laravel/socialite
+<h3>Google Login With Laravel Socialite</h3>
+1) Socialite package--> **composer require laravel/socialite**
 2) Configure credentials
-Navigate to the config/services.php file and add the following configuration for the Google provider:-->
-'google' => [
+Navigate to the **config/services.php** file and add the following configuration for the Google provider:-->
+
+<code>
+    'google' => [
     'client_id' => env('GOOGLE_CLIENT_ID'),
     'client_secret' => env('GOOGLE_CLIENT_SECRET'),
     'redirect' => env('GOOGLE_REDIRECT_URI'),
 ],
-
+</code>
+ 
 Step 1: Go to the Google Developers Console
-Visit the Google Developers Console at https://console.developers.google.com/ and sign in with your Google account.
+Visit the Google Developers Console at **https://console.developers.google.com/** and sign in with your Google account.
 
 Step 2: Create a new project
 Click on the project drop-down and select "New Project". Enter a name for your project and click the "Create" button.
@@ -29,7 +33,10 @@ Step 7: Obtain the client ID and client secret
 After creating the OAuth client credentials, you will see a screen displaying the client ID and client secret. Take note of these values as you will need them in the Laravel configuration.
 
 Step 8: Configure Laravel environment variables
-In your Laravel project's root directory, open the .env file. Add the following lines and replace your-client-id, your-client-secret, and your-redirect-uri with the corresponding values you obtained in the previous steps:
+In your Laravel project's root directory, open the** .env file**. Add the following lines and replace your-client-id, your-client-secret, and your-redirect-uri with the corresponding values you obtained in the previous steps:
+
+<code>
 GOOGLE_CLIENT_ID=your-client-id
 GOOGLE_CLIENT_SECRET=your-client-secret
 GOOGLE_REDIRECT_URI=your-redirect-uri
+</code>
