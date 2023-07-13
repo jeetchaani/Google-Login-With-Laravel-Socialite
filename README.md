@@ -40,3 +40,17 @@ GOOGLE_CLIENT_ID=your-client-id
 GOOGLE_CLIENT_SECRET=your-client-secret
 GOOGLE_REDIRECT_URI=your-redirect-uri
 </code>
+
+3) Create Route and Controller --
+   <code>
+         public function redirectToGoogle()
+    {
+        return Socialite::driver('google')->redirect();
+    }
+    public function handleGoogleCallback()
+    {
+        $user = Socialite::driver('google')->stateless()->user();
+
+        // Perform user registration or login logic here
+   }
+   </code>
