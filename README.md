@@ -1,8 +1,6 @@
 <h3>Google Login With Laravel Socialite</h3>
 1) Socialite package--> **composer require laravel/socialite**
-
 2) Configure credentials
-   
 Navigate to the **config/services.php** file and add the following configuration for the Google provider:-->
 
 <code>
